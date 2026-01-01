@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Master's Aluminium</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f6f6f6;
+}
+header {
+    background: #131921;
+    padding: 15px;
+}
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: white;
+}
+.logo {
+    height: 40px;
+}
+nav {
+    background: #232f3e;
+    padding: 10px;
+    text-align: center;
+}
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+.search-filter {
+    background: white;
+    padding: 12px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.search-filter input,
+.search-filter select {
+    padding: 8px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.catalog {
+    padding: 20px;
+}
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+}
+.product {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    text-align: center;
+}
+.product img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.product h3 {
+    font-size: 14px;
+    margin: 8px 0;
+}
+.price {
+    color: #1c16d6;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.whatsapp-btn {
+    background: #25D366;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+}
+footer {
+    background: #131921;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-content">
+        <img src="images/logo.jpg" class="logo">
+        <h1>Master's Aluminium</h1>
+    </div>
+</header>
+
+<nav>
+   <!-- <a href="#">All</a> -->
+    <a href="#">Security</a>
+    <a href="#">Windows</a>
+    <a href="#">Doors</a>
+    <a href="#">Garage Doors</a>
+   <!---<a href="#">Sliding Doors</a>---->
+    <a href="#">Other Products</a>
+</nav>
+
+<div class="search-filter">
+    <input type="text" id="searchInput" placeholder="Search products...">
+    <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="security">Security</option>
+        <option value="windows">Windows</option>
+        <option value="doors">Doors</option>
+        <option value="garage">Garage Doors</option>
+      <!--  <option value="sliding">Sliding Doors</option> -->
+        <option value="other">Other Products</option>
+    </select>
+</div>
+
+<section class="catalog">
+<div class="products">
+
+<!-- SECURITY (5) -->
+<div class="product" data-name="Security Gate 1" data-category="security">
+    <img src="images/security1.jpeg" onclick="openImg(this.src)">
+    <h3>Gate Motor</h3>
+    <div class="price">R20000</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the Gate motor" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Security Gate 3" data-category="security">
+    <img src="images/security3.jpeg" onclick="openImg(this.src)">
+    <h3>Gate motor</h3>
+    <div class="price">R20000</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the gate motor" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Security Gate 2" data-category="security">
+    <img src="images/security2.jpeg" onclick="openImg(this.src)">
+    <h3>Burglar bars</h3>
+    <div class="price">Size Dependent</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in window burgular bars" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Security Gate 4" data-category="security">
+    <img src="images/security4.jpeg" onclick="openImg(this.src)">
+    <h3>1.5m x 1.5m Burglar bar</h3>
+    <div class="price">R400</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the 1.5m x 1.5m window Burglar bar" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Security Gate 5" data-category="security">
+    <img src="images/security5.jpeg" onclick="openImg(this.src)">
+    <h3>Sliding door burglar bar</h3>
+    <div class="price">R800</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the Sliding door burglar bar" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Security Gate 6" data-category="security">
+    <img src="images/security6.jpeg" onclick="openImg(this.src)">
+    <h3>Trelling Door burglar bar</h3>
+    <div class="price">R1000</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the trelling door burglar bar" target="_blank">Order on WhatsApp</a>
+</div>
+<!--
+<div class="product" data-name="Security Gate 7" data-category="security">
+    <img src="images/security7.jpeg" onclick="openImg(this.src)">
+    <h3>Security Gate 7</h3>
+    <div class="price">R1</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Security Gate 7" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Security Gate 8" data-category="security">
+    <img src="images/security8.jpeg" onclick="openImg(this.src)">
+    <h3>Security Gate 8</h3>
+    <div class="price">R1</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Security Gate 8" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Security Gate 9" data-category="security">
+    <img src="images/security9.jpeg" onclick="openImg(this.src)">
+    <h3>Security Gate 9</h3>
+    <div class="price">R1</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Security Gate 9" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Security Gate 10" data-category="security">
+    <img src="images/security10.jpeg" onclick="openImg(this.src)">
+    <h3>Security Gate 10</h3>
+    <div class="price">R1</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Security Gate 10" target="_blank">Order on WhatsApp</a>
+</div>
+-->
+
+<!-- WINDOWS (5) -->
+<div class="product" data-name="Window Model 1" data-category="windows">
+    <img src="images/window1.jpeg" onclick="openImg(this.src)">
+    <h3>Enclosed veranda</h3>
+    <div class="price">R10</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the enclosed veranda window set" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Window Model 2" data-category="windows">
+    <img src="images/window2.jpeg" onclick="openImg(this.src)">
+    <h3>1.2m x 1.2m</h3>
+    <div class="price">R15</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the 1.2m x 1.2m window" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Window Model 3" data-category="windows">
+    <img src="images/window3.jpeg" onclick="openImg(this.src)">
+    <h3>1.2m x 1.8m</h3>
+    <div class="price">R15</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the 1.2m x 1.8m window" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Window Model 4" data-category="windows">
+    <img src="images/window4.jpeg" onclick="openImg(this.src)">
+    <h3>1.5m x 1.5m</h3>
+    <div class="price">R15</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the 1.5m x 1.5m window" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Window Model 5" data-category="windows">
+    <img src="images/window5.jpg" onclick="openImg(this.src)">
+    <h3>0.9m x 1.2m</h3>
+    <div class="price">R15</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the 0.9m x 1.2m window" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Window Model 6" data-category="windows">
+    <img src="images/window6.jpg" onclick="openImg(this.src)">
+    <h3>1.2m x 1.2m</h3>
+    <div class="price">R15</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the 1.2m x 1.2m window" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Window Model 7" data-category="windows">
+    <img src="images/window7.jpg" onclick="openImg(this.src)">
+    <h3>1.2m x 1.2m</h3>
+    <div class="price">R15</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the 1.2m x 1.2m window" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Window Model 8" data-category="windows">
+    <img src="images/window8.jpg" onclick="openImg(this.src)">
+    <h3>Window Model 8</h3>
+    <div class="price">R15</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Window Model 8" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Window Model 9" data-category="windows">
+    <img src="images/window9.jpeg" onclick="openImg(this.src)">
+    <h3>1.5m x 1.8m</h3>
+    <div class="price">R15</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the 1.5m x 1.8m window" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Window Model 10" data-category="windows">
+    <img src="images/window10.jpeg" onclick="openImg(this.src)">
+    <h3>1.5m x 1.8m</h3>
+    <div class="price">R15</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the 1.5m x 1.8m" target="_blank">Order on WhatsApp</a>
+</div>
+
+<!-- DOORS (10) -->
+<div class="product" data-name="Door Model 1" data-category="doors"><img src="images/door1.jpeg" onclick="openImg(this.src)"><h3>Front/back Door</h3><div class="price">R4 999</div><a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Door Model 1" target="_blank">Order on WhatsApp</a></div>
+<div class="product" data-name="Door Model 2" data-category="doors"><img src="images/door2.jpeg" onclick="openImg(this.src)"><h3>Front/back Door</h3><div class="price">R4 999</div><a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Door Model 2" target="_blank">Order on WhatsApp</a></div>
+<div class="product" data-name="Door Model 3" data-category="doors"><img src="images/door3.jpeg" onclick="openImg(this.src)"><h3>Front/back Door</h3><div class="price">R4 999</div><a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Door Model 3" target="_blank">Order on WhatsApp</a></div>
+<div class="product" data-name="Door Model 4" data-category="doors"><img src="images/door4.jpeg" onclick="openImg(this.src)"><h3>Front/back Door</h3><div class="price">R4 999</div><a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Door Model 4" target="_blank">Order on WhatsApp</a></div>
+<div class="product" data-name="Door Model 5" data-category="doors"><img src="images/door5.jpeg" onclick="openImg(this.src)"><h3>Front door</h3><div class="price">R7 999</div><a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Door Model 5" target="_blank">Order on WhatsApp</a></div>
+<div class="product" data-name="Door Model 6" data-category="doors"><img src="images/door6.jpeg" onclick="openImg(this.src)"><h3>Front/back Door</h3><div class="price">R4 999</div><a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the silver double door" target="_blank">Order on WhatsApp</a></div>
+<div class="product" data-name="Door Model 7" data-category="doors"><img src="images/door7.jpeg" onclick="openImg(this.src)"><h3>Double Door</h3><div class="price">R9 999</div><a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the bronze double door" target="_blank">Order on WhatsApp</a></div>
+<div class="product" data-name="Door Model 8" data-category="doors"><img src="images/door8.jpeg" onclick="openImg(this.src)"><h3>Double Door</h3><div class="price">R9 999</div><a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Door Model 8" target="_blank">Order on WhatsApp</a></div>
+<div class="product" data-name="Door Model 9" data-category="doors"><img src="images/door9.jpeg" onclick="openImg(this.src)"><h3>Front/back Door</h3><div class="price">R4 999</div><a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Door Model 9" target="_blank">Order on WhatsApp</a></div>
+<div class="product" data-name="Door Model 10" data-category="doors"><img src="images/door10.jpeg" onclick="openImg(this.src)"><h3>Front/back Door</h3><div class="price">R4 999</div><a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Door Model 10" target="_blank">Order on WhatsApp</a></div>
+
+<!-- GARAGE DOORS (10) -->
+<div class="product" data-name="Garage Door 1" data-category="garage">
+    <img src="images/garage door1.jpg" onclick="openImg(this.src)">
+    <h3> Garage door(G1)</h3>
+    <div class="price">R9 999</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the Garage door(G1)" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Garage Door 2" data-category="garage ">
+    <img src="images/garage door2.jpg" onclick="openImg(this.src)">
+    <h3>Garage door(G2)</h3>
+    <div class="price">R9 999</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the Garage Door(G2)" target="_blank">Order on WhatsApp</a>
+</div>
+<div class="product" data-name="Garage Door 3" data-category="garage">
+    <img src="images/garage door3.jpg" onclick="openImg(this.src)">
+    <h3>Double garage door(M1)</h3>
+    <div class="price">R19 999</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the Double garage door(M1)" target="_blank">Order on WhatsApp</a>
+</div>
+<div class="product" data-name="Garage Door 4" data-category="garage">
+    <img src="images/garage door4.jpg" onclick="openImg(this.src)">
+    <h3>Double garage door(M2)</h3>
+    <div class="price">R19 999</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the Double garage door(M2)" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Garage Door 5" data-category="garage">
+    <img src="images/garage door5.jpg" onclick="openImg(this.src)">
+    <h3>Double garage door(M3)</h3>
+    <div class="price">R19 999</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the Double garage door(M3)" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Garage Door 6" data-category="garage">
+    <img src="images/garage door6.jpg" onclick="openImg(this.src)">
+    <h3>Garage door(G3)</h3>
+    <div class="price">R9 999</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Garage door(G3)" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Garage Door 7" data-category="garage">
+    <img src="images/garage door7.jpg" onclick="openImg(this.src)">
+    <h3>Double garage door(M4)</h3>
+    <div class="price">R19 999</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the Double garage door(M4)" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Garage Door 8" data-category="garage">
+    <img src="images/garage door8.jpg" onclick="openImg(this.src)">
+    <h3>Garage door(G4)</h3>
+    <div class="price">R9 999</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Garage Door(G4)" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Garage Door 9" data-category="garage">
+    <img src="images/garage door9.jpg" onclick="openImg(this.src)">
+    <h3>Garage door(G5)</h3>
+    <div class="price">R9 999</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Garage Door(G5)" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="Garage Door 10" data-category="garage">
+    <img src="images/garage door10.jpg" onclick="openImg(this.src)">
+    <h3>Garage door(G6)</h3>
+    <div class="price">R9 999</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in Garage Door(G6)" target="_blank">Order on WhatsApp</a>
+</div>
+
+<!--Other Products-->
+<div class="product" data-name="Other 1" data-category="other">
+    <img src="images/other1.jpg" onclick="openImg(this.src)">
+    <h3>Sliding Door</h3>
+    <div class="price">R12</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the sliding Door " target="_blank">Order on WhatsApp</a>
+</div>
+<div class="product" data-name="other 2" data-category="other">
+    <img src="images/other5.jpg" onclick="openImg(this.src)">
+    <h3>Corner Window</h3>
+    <div class="price">R13</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the corner window" target="_blank">Order on WhatsApp</a>
+</div>
+
+<div class="product" data-name="trelling door" data-category="other">
+    <img src="images/other3.jpg" onclick="openImg(this.src)">
+    <h3>Trelling Door</h3>
+    <div class="price">R14</div>
+    <a class="whatsapp-btn" href="https://wa.me/27670696654?text=Hi, I'm interested in the trelling door" target="_blank">Order on WhatsApp</a>
+</div>
+
+
+
+
+
+
+
+</div>
+</section>
+
+<footer>© 2026 Master's Aluminium
+<br>
+Please feel free to contact us on WhatsApp for any enquires at: <br> <h4> +27 670 696 654</h4>
+
+
+
+
+
+
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeImg()">
+    <img id="lightbox-img">
+</div>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const categoryFilter = document.getElementById("categoryFilter");
+const products = document.querySelectorAll(".product");
+
+function filterProducts() {
+    const search = searchInput.value.toLowerCase();
+    const category = categoryFilter.value;
+
+    products.forEach(p => {
+        const matchName = p.dataset.name.toLowerCase().includes(search);
+        const matchCat = category === "all" || p.dataset.category === category;
+        p.style.display = matchName && matchCat ? "block" : "none";
+    });
+}
+
+searchInput.addEventListener("keyup", filterProducts);
+categoryFilter.addEventListener("change", filterProducts);
+
+function openImg(src) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = src;
+}
+function closeImg() {
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+</body>
+</html>
